@@ -11,9 +11,9 @@
 
 # COMO EXECUTAR ❕
 1- ter o ghci e ghc no terminal <br>
-2- abrir pasta app no terminal
-3- rodar comando: ghc -o main Main.hs
-4- depois: ./main
+2- abrir pasta app no terminal <br>
+3- rodar comando: ghc -o main Main.hs <br>
+4- depois: ./main <br>
 
 
 
