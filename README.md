@@ -10,8 +10,11 @@
 &nbsp;  A interface do sistema será apresentada no terminal do S.O. usando estatísticas e probabilidade, previamente estabelecidas, a fim de calcular o possível vencedor dos confrontos e partir para a próxima fase do jogo até chegar ao final da Copa Mundial. As probabilidades serão obtidas a partir dos confrontos históricos das seleções, caso não tenham se enfrentado anteriormente, iremos analisar o ranking da FIFA das seleções como um todo, adicionando as informações manualmente no Banco de dados local. Além disso, iremos criar um sistema básico de apostas para o usuário escolher em quais seleções irá apostar antes da simulação dos jogos da copa serem realizados.
 
 # COMO EXECUTAR ❕
+1- ter o ghci e ghc no terminal
+2- abrir pasta app no terminal
+3- rodar comando: ghc -o main Main.hs
+4- depois: ./main
 
-&nbsp; 
 
 
 
