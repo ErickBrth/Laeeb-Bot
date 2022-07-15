@@ -2,7 +2,6 @@ module Main where
 
 import Lib
 
-import  System.Random (randomRIO)
 
 selecoes = ["1-Brasil", "2-Alemenha", "3-Argentina", "4-Belgica","5-Holanda", "6-Inglaterra", "7-Franca", "8-Espanha", "9-Portugal","10-Croacia", "11-Uruguai"]
 valorSelecao =[9.2, 9.3, 9.0, 9.2, 8.9, 8.8, 9.4, 8.7, 9.0, 8.5, 8.4]
@@ -21,8 +20,6 @@ verSaldo s =do
      print s
      main2 s
 
-incrementa :: Int -> Int                 
-incrementa x = x+1
 
 apostar s = do
     putStrLn "Time que voce vai apostar"
@@ -31,17 +28,29 @@ apostar s = do
     putStrLn "Time adversário"
     input3 <- getLine
     let time2 = (read input3 :: Int)
-    if (valorSelecao !!(time1-1)) > (valorSelecao !!(time2-1)) then do
-        print "Voce ganhou"
-        main2 (s+s)
-        
-    else do print "Voce perdeu"
-            main2 (s-s)
+    putStrLn "Valor da aposta"
+    input5 <- getLine
+    let valorAposta = (read input5 :: Int)
+    if valorAposta > s then do
+        print "Saldo insuficiente"
+        main2 s
+        else do
+            if (valorSelecao !!(time1-1)) > (valorSelecao !!(time2-1)) then do
+                print "Voce ganhou"
+                main2 (s+valorAposta)
+                
+            else do print "Voce perdeu"
+                    main2 (s-valorAposta)
 
     
 
 recarregar = do
-    main2 20
+    putStrLn "Digite o valor da recarga"
+    input4 <- getLine
+    let valor = (read input4 :: Int)
+    putStrLn "Saldo recarregado"
+    main2 valor
+
 
 
 
@@ -54,8 +63,6 @@ defineAcao x s = if x == 1 then verSelecoes 0 s
 
 
 main = do 
-    zac <- randomRIO (1,6::Int)
-    print zac
     putStrLn "Selecione:"  
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
