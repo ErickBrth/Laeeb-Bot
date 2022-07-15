@@ -13,7 +13,11 @@ verSelecoes x= do
         else printSelecoes x
 
 
-verSaldo = print "saldo é de 1"
+verSaldo s = print "O saldo é de "
+
+incrementa :: Int -> Int                 
+incrementa x = x+1
+
 apostar = do
     putStrLn "Time que voce vai apostar"
     input2 <- getLine
@@ -21,17 +25,22 @@ apostar = do
     putStrLn "Time adversário"
     input3 <- getLine
     let time2 = (read input3 :: Int)
-    if (valorSelecao !!(time1-1)) > (valorSelecao !!(time2-1)) then print "Voce ganhou"
+    if (valorSelecao !!(time1-1)) > (valorSelecao !!(time2-1)) then 
+        print "Voce ganhou"
     else print "Voce perdeu"
     main
+
 recarregar = print "recarregado"
 
-defineAcao x = if x == 1 then verSelecoes 0
-              else if x == 2 then verSaldo
+recarrega :: Int -> Int
+recarrega s = s + 1
+
+defineAcao x s = if x == 1 then verSelecoes 0
+              else if x == 2 then verSaldo s
               else if x == 4 then apostar
-              else recarregar
+              else if x == 3 then recarrega s
 
-
+Main :: IO()
 main = do 
     putStrLn "Selecione:"  
     putStrLn "1- ver selecoes"
