@@ -1,18 +1,20 @@
 module Main where
 
-import Lib
+import System.Random 
 
 
-selecoes = ["1-Brasil", "2-Alemenha", "3-Argentina", "4-Belgica","5-Holanda", "6-Inglaterra", "7-Franca", "8-Espanha", "9-Portugal","10-Croacia", "11-Uruguai"]
-valorSelecao =[9.2, 9.3, 9.0, 9.2, 8.9, 8.8, 9.4, 8.7, 9.0, 8.5, 8.4]
+selecoes = ["1- Brasil", "2- Alemenha", "3- Argentina", "4- Belgica","5- Holanda", "6- Inglaterra", "7- Franca", "8- Espanha", "9- Portugal","10- Croacia", "11- Uruguai", "12- Dinamarca", "13- servia", "14- suica", "15- ira", "16- coreia do sul"]
+valorSelecao = [9.2, 9.3, 9.0, 9.2, 8.9, 8.8, 9.4, 8.7, 9.0, 8.5, 8.4,8.7,8.0,8.8,7.5,7.7]
+
+
 
 printSelecoes x s = do
     print (selecoes !! x)
     verSelecoes(x+1) s
 
-verSelecoes x s= do
+verSelecoes x s = do
     if x == (length selecoes) then main2 s
-        else printSelecoes x s
+    else printSelecoes x s
 
 
 verSaldo s =do
@@ -63,6 +65,8 @@ defineAcao x s = if x == 1 then verSelecoes 0 s
 
 
 main = do 
+    numeroAleatorio <- randomRIO (1,16 :: Int)
+    putStrLn $ show numeroAleatorio
     putStrLn "Selecione:"  
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
@@ -73,6 +77,8 @@ main = do
     defineAcao x 20
 
 main2 s = do 
+    numeroAleatorio <- randomRIO (1,16 :: Int)
+    putStrLn $ show numeroAleatorio
     putStrLn "Selecione:"  
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
