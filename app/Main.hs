@@ -24,13 +24,12 @@ verSaldo s =do
 
 
 apostar s = do
-    print "Time que voce vai apostar"
-    time1 <- randomRIO (1,16 :: Int)
-    putStrLn "Time adversário"
-    time2 <- randomRIO (1,16 :: Int)
-    putStrLn "Time que voce vai apostar"
+    time1 <- randomRIO (1,8 :: Int)
+    time2 <- randomRIO (9,16 :: Int)
+    putStrLn "Times da rodada:"
     print (selecoes !! time1)
     print (selecoes !! time2)
+    putStrLn "Time que voce vai apostar: "
     input2 <-getLine
     let timeApostado = (read input2 :: Int)
     putStrLn "Valor da aposta"
@@ -51,10 +50,10 @@ apostar s = do
                         print "voce perdeu a aposta"
                         main2 (s - valorAposta)
                 else do
-                     if timeApostado == 2 then do
+                    if timeApostado == 2 then do
                         print "voce ganhou a aposta"
                         main2 (s+valorAposta)
-                     else do
+                    else do
                         print "voce perdeu a aposta"
                         main2 (s - valorAposta)
             else do
@@ -66,10 +65,10 @@ apostar s = do
                         print "voce perdeu a aposta"
                         main2 (s - valorAposta)
                 else do
-                     if timeApostado == 1 then do
+                    if timeApostado == 1 then do
                         print "voce ganhou a aposta"
                         main2 (s+valorAposta)
-                     else do
+                    else do
                         print "voce perdeu a aposta"
                         main2 (s - valorAposta)
 
@@ -97,8 +96,6 @@ defineAcao x s
 
 
 main = do
-    numeroAleatorio <- randomRIO (1,16 :: Int)
-    print numeroAleatorio
     putStrLn "Selecione:"
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
@@ -109,8 +106,6 @@ main = do
     defineAcao x 20
 
 main2 s = do
-    numeroAleatorio <- randomRIO (1,16 :: Int)
-    print numeroAleatorio
     putStrLn "Selecione:"
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
