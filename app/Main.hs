@@ -86,7 +86,7 @@ defineAcao x s
   | x == 2 = verSaldo s
   | x == 4 = apostar s
   | x == 3 = recarregar
-  | x == 5 = menuCopa s
+ -- | x == 5 = menuCopa s
   | otherwise = main2 s
 
 
@@ -96,8 +96,8 @@ main = do
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
     putStrLn "3- recarregar o saldo"
-    putStrLn "4- Mini Game"
-    putStrLn "5- Laeeb bot Copa do Mundo FIFA"
+    putStrLn "4- Apostar"
+   -- putStrLn "5- Laeeb bot Copa do Mundo FIFA"
     input1 <- getLine
     let x = (read input1 :: Int)
     defineAcao x 20
@@ -107,13 +107,33 @@ main2 s = do
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
     putStrLn "3- recarregar o saldo"
-    putStrLn "4- Mini Game"
-    putStrLn "5- Laeeb bot Copa do Mundo FIFA"
+    putStrLn "4- Apostar"
+  --  putStrLn "5- Laeeb bot Copa do Mundo FIFA"
     input1 <- getLine
     let x = (read input1 :: Int)
     defineAcao x s
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{-
+    
 menuCopa s = do
     putStrLn "Selecione:"
     putStrLn "1- Oitavas de Final"
@@ -141,7 +161,8 @@ defineAcaoCopa x s
  --   | x == 4 = final s
     | otherwise = menuCopa2 s
 
-oitavas s = do;{-
+--oitavas s = do;
+{-
     putStrLn "digite os confrontos: "
     timex1 <- getLine
     timex2 <- getLine
@@ -155,7 +176,7 @@ oitavas s = do;{-
 --semifinal s = do
 
 --final s = do
-
+-}
     
     
 
