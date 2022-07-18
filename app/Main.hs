@@ -4,7 +4,7 @@ import System.Random
 
 
 selecoes = ["1- Brasil", "2- Alemenha", "3- Argentina", "4- Belgica","5- Holanda", "6- Inglaterra", "7- Franca", "8- Espanha", "9- Portugal","10- Croacia", "11- Uruguai", "12- Dinamarca", "13- servia", "14- suica", "15- ira", "16- coreia do sul"]
-valorSelecao = [9.2, 9.3, 9.0, 9.2, 8.9, 8.8, 9.4, 8.7, 9.1, 8.5, 8.4,8.7,8.0,8.8,7.5,7.7]
+valorSelecao = [9.2, 9.3, 9.0, 9.2, 8.9, 8.8, 9.4, 8.7, 9.1, 8.5, 8.4, 8.7, 8.0, 8.8, 7.5, 7.7]
 
 
 
@@ -72,10 +72,6 @@ apostar s = do
                         print "voce perdeu a aposta"
                         main2 (s - valorAposta)
 
-
-
-
-
 recarregar = do
     putStrLn "Digite o valor da recarga"
     input4 <- getLine
@@ -85,12 +81,12 @@ recarregar = do
 
 
 
-
 defineAcao x s
   | x == 1 = verSelecoes 0 s
   | x == 2 = verSaldo s
   | x == 4 = apostar s
   | x == 3 = recarregar
+  | x == 5 = menuCopa s
   | otherwise = main2 s
 
 
@@ -100,7 +96,8 @@ main = do
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
     putStrLn "3- recarregar o saldo"
-    putStrLn "4- Apostar"
+    putStrLn "4- Mini Game"
+    putStrLn "5- Laeeb bot Copa do Mundo FIFA"
     input1 <- getLine
     let x = (read input1 :: Int)
     defineAcao x 20
@@ -110,9 +107,56 @@ main2 s = do
     putStrLn "1- ver selecoes"
     putStrLn "2- ver saldo"
     putStrLn "3- recarregar o saldo"
-    putStrLn "4- Apostar"
+    putStrLn "4- Mini Game"
+    putStrLn "5- Laeeb bot Copa do Mundo FIFA"
     input1 <- getLine
     let x = (read input1 :: Int)
     defineAcao x s
+
+
+menuCopa s = do
+    putStrLn "Selecione:"
+    putStrLn "1- Oitavas de Final"
+    putStrLn "2- Quartas de Final"
+    putStrLn "3- Semifinal"
+    putStrLn "4- Final"
+    input1 <- getLine
+    let x = (read input1 :: Int)
+    defineAcaoCopa x 20
+
+menuCopa2 s = do
+    putStrLn "Selecione:"
+    putStrLn "1- Oitavas de Final"
+    putStrLn "2- Quartas de Final"
+    putStrLn "3- Semifinal"
+    putStrLn "4- Final"
+    input1 <- getLine
+    let x = (read input1 :: Int)
+    defineAcaoCopa x s
+
+defineAcaoCopa x s
+    | x == 1 = oitavas s
+ --   | x == 2 = quartas s
+--    | x == 3 = semifinal s
+ --   | x == 4 = final s
+    | otherwise = menuCopa2 s
+
+oitavas s = do;{-
+    putStrLn "digite os confrontos: "
+    timex1 <- getLine
+    timex2 <- getLine
+    let x3 = (read timex1 :: Int)
+    let x4 = (read timex2 :: Int)
+    -}
+    
+
+--quartas s = do
+
+--semifinal s = do
+
+--final s = do
+
+    
+    
 
 
