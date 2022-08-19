@@ -54,7 +54,8 @@ partida(Time1, Time2, R):-
     get_selecao_nome(Nome2, Saida2),
     write("Resultado: "), write(Saida1), write(" "), write(R1),write(" X "),write(R2),write(" "), write(Saida2),nl,
     (R1 > R2 -> R is 1;
-    R is 2).
+    R1 < R2 -> R is 2;
+    R1 =:= R2 -> R is 0).
 
 apostar(Saldo):-
     write("Digite o time 1: "),
@@ -66,7 +67,8 @@ apostar(Saldo):-
     (ValorApostado > Saldo -> write("Saldo insuficiente"),main2(Saldo);
     partida(Time1,Time2, Resultado),
     (Resultado =:= 1 -> NovoSaldo is Saldo + ValorApostado, writeln("YOU WIN!");
-    NovoSaldo is Saldo - ValorApostado,writeln("YOU LOSE!")),
+    Resultado =:= 2 -> NovoSaldo is Saldo - ValorApostado,writeln("YOU LOSE!");
+    Resultado =:= 0 -> NovoSaldo is Saldo,writeln("DRAW!")),
     main2(NovoSaldo)).
 
 define_acao(Option,Saldo) :-
